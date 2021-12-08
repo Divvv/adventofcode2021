@@ -1,6 +1,4 @@
-console.log('test');
-
-let numbers = [
+let realArray = [
     'forward 5'
     ,'down 7'
     ,'forward 8'
@@ -1009,33 +1007,28 @@ let easyArray = [
     'up 3'
 ]; // depth: 2, forward: 10, answer: 20
 
+let depth = 0;
+let pos = 0;
 
-let countOfTimesBigger = 0;
+realArray.forEach(element => {
+    let splitValue = element.split(' ');
+    let instruktion = splitValue[0];
+    let instrValue = parseInt(splitValue[1]);
 
-numbers.forEach((nr, i) => {
-
-    let s1 = numbers[i];
-    let s2 = numbers[i+1];
-    let s3 = numbers[i+2];
-    let s4 = numbers[i+3];
-    let ssum1 = s1 + s2 + s3;
-    let ssum2 = s2 + s3 + s4;
-    
-    /* let nx = numbers[i+1]; */
-
-
-    if(ssum2 > ssum1 && s4 !== undefined) {
-        countOfTimesBigger++;
-    };
+    switch(instruktion){
+        case 'forward':
+            pos += instrValue;
+            break;
+        case 'down':
+            depth += instrValue;
+            break;
+        case 'up':
+            depth -= instrValue;
+            break;
+        default:
+            console.log('nåt sket sig');
+            break;
+    }
 });
 
-console.log(countOfTimesBigger)
-
-// for(let i = 0; i <= testNrs.length-1; i++){
-//     console.log(testNrs[i]);
-    // let nuvarandeSiffra = testNrs[i];
-    // let nextSiffra = testNrs[i+1];
-    // if(nuvarandeSiffra < nextSiffra){
-    //     countOfTimesBigger++;
-    // }
-// }
+console.log(depth * pos);
