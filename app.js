@@ -2004,14 +2004,18 @@ let numbers = [
 ];
 
 
-let testNrs = [1, 5, 10, 5, 7, 15]; //svar: 4
+let testNrs = [1, 5, 10, 5, 7, 15, 17, 15, 15]; //svar: 4
 
 let countOfTimesBigger = 0;
 
-testNrs.forEach((nr, i) => {
-    console.log(nr);
-    console.log(testNrs[i+1]);
+numbers.forEach((nr, i) => {
+
+    let nx = numbers[i+1];
+    if(nx > nr && nx !== undefined){
+        countOfTimesBigger++;
+    }
 });
+console.log(countOfTimesBigger)
 
 // for(let i = 0; i <= testNrs.length-1; i++){
 //     console.log(testNrs[i]);
