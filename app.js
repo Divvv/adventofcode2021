@@ -2008,8 +2008,9 @@ let testNrs = [1, 5, 10, 5, 7, 15]; //svar: 4
 
 let countOfTimesBigger = 0;
 
-testNrs.forEach(nr => {
+testNrs.forEach((nr, i) => {
     console.log(nr);
+    console.log(testNrs[i+1]);
 });
 
 // for(let i = 0; i <= testNrs.length-1; i++){
