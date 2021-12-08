@@ -2004,17 +2004,27 @@ let numbers = [
 ];
 
 
-let testNrs = [1, 5, 10, 5, 7, 15, 17, 15, 15]; //svar: 4
+let testNrs = [1, 5, 10, 5, 7, 15, 17, 15, 15]; //svar: 5
 
 let countOfTimesBigger = 0;
 
 numbers.forEach((nr, i) => {
 
-    let nx = numbers[i+1];
-    if(nx > nr && nx !== undefined){
+    let s1 = numbers[i];
+    let s2 = numbers[i+1];
+    let s3 = numbers[i+2];
+    let s4 = numbers[i+3];
+    let ssum1 = s1 + s2 + s3;
+    let ssum2 = s2 + s3 + s4;
+    
+    /* let nx = numbers[i+1]; */
+
+
+    if(ssum2 > ssum1 && s4 !== undefined) {
         countOfTimesBigger++;
-    }
+    };
 });
+
 console.log(countOfTimesBigger)
 
 // for(let i = 0; i <= testNrs.length-1; i++){
